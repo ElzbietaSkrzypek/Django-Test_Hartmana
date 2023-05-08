@@ -1,0 +1,351 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+          <!-- Boot Strap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- Logo-Brand -->
+<a href="{% url 'polls:home' %}">
+    <img class="logo" src="https://testhartmana.pl/img/logo.svg" alt="TestHartmana.pl">
+</a>
+
+<!-- Main Body -->
+<div class="carousel end">
+<h1>Wynik końcowy</h1>
+<br><br>
+<br>
+<div class="container results">
+  <div class="row text-center">
+    <div class="col-sm" style="color:#F45050;">
+        <h2>Czerwony : {{ sum_a_votes }}</h2>
+    </div>
+    <div class="col-sm" style="color:#009EFF;">
+        <h2>Niebieski : {{ sum_b_votes }}</h2>
+    </div>
+    <div class="col-sm" style="color:#FBFFB1;">
+        <h2>Żółty : {{ sum_d_votes }}</h2>
+    </div>
+    <div class="col-sm" style="color:white;">
+        <h2>Biały: {{ sum_c_votes }}</h2>
+    </div>
+  </div>
+</div>
+
+<h5>Kolor, przy którym uzyskałeś najwyższy wynik końcowy oznacza twój typ osobowości.
+Liczba punktów zdobytych w innych kolumnach sugeruje, jak bardzo złożona jest twoja
+osobowość. Każdy człowiek reprezentuje jeden kolor podstawowy, ale zdarza się, że
+zależnie od rodzaju reakcji swoim zachowaniem przypomina melanż kilku kolorów. Kolor
+podstawowy określamy opierając się na motywach, a nie zachowaniu.</h5>
+
+<div class="color-description red">
+    <div id="carouselExample" class="carousel slide col-sm color-description red" data-ride="carousel">
+        <div class="carousel-inner car-inner">
+            <div class="carousel-item active">
+                <div class="color-description red">
+                    <h3>KOLOR CZERWONY</h3>
+                     <h6>Czerwony to silna, zdecydowana osobowość, to przywódca. Osobowość ta jest bardzo asertywna i będzie liderem grupy, a dzięki umiejętnościom w zakresie dyscypliny i zarządzania często osiągają bardzo dobre wyniki zawodowe. Jednak prowadzi to również do ich negatywnych aspektów: czerwoni muszą mieć rację i często są zbyt krytyczni wobec innych. Nie oznacza to, że „czerwoni” są z natury źli, są kontrolerami i lubią mieć rację i dominować. Czerwony musi być logiczny i praktyczny, przy czym czasami bywa zamknięty w sobie i trudny w kontaktach międzyludzkich.</h6>
+                </div>
+            </div>
+            <div class="carousel-item color-description red">
+                <h2>Czerwony – przywódca</h2>
+                <table class="table table-bordered red">
+                  <thead>
+                    <tr class="text-center red">
+                      <th class="th-green w-50" scope="col">Zalety</th>
+                      <th class="th-red w-50" scope="col">Wady</th>
+                    </tr>
+                  </thead>
+                  <tbody class="red">
+                    <tr>
+                      <td>Samodzielność</td>
+                      <td>Skłonność do ryzyka</td>
+                    </tr>
+                    <tr>
+                      <td>Niezależność myślenia</td>
+                      <td>Brak cierpliwości</td>
+                    </tr>
+                    <tr>
+                      <td>Łatwość podejmowania decyzji</td>
+                      <td>Upór</td>
+                    </tr>
+                    <tr>
+                      <td>Zdolności zarządcze</td>
+                      <td>Nie uznaje zasad i ograniczeń</td>
+                    </tr>
+                    <tr>
+                      <td>Umiejętność rozwiązywania problemów</td>
+                      <td>Gaduła</td>
+                    </tr>
+                    <tr>
+                      <td>Umiejętność myślenia strategicznego</td>
+                      <td>Mało empatyczny i elastyczny w działaniu</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                      <td>Ma skłonności do manipulacji</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="carousel-item">
+                <div class="color-description red">
+                <h3>Praca idealna dla „Czerwonego”</h3><br>
+                <ul>
+                    <li>Stanowisko wymagające łączenia wielu zadań i umiejętności.</li>
+                    <li>Praca z możliwością awansu i uznania.</li>
+                    <li>Praca ze swobodą działania i podejmowania decyzji.</li>
+                    <li>Stanowisko pozwalające na pełne kontrolowanie efektów własnej pracy.</li>
+                    <li>Praca bez zadań powtarzalnych i rutynowych.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div>
+    <div id="carouselExample2" class="carousel slide col-sm color-description blue" data-ride="carousel">
+        <div class="carousel-inner car-inner">
+            <div class="carousel-item active">
+                <div class="color-description blue">
+                    <h3>KOLOR NIEBIESKI</h3>
+                    <h6>Niebieski to analityk i organizator, a najważniejszym jest dla niego zdobywanie informacji. To styl emocjonalny, skupiony na kontaktach z innymi ludźmi. Niebiescy to ludzie, którymi lubimy się otaczać, a oni sami do rozwoju potrzebują akceptacji i „bycia lubianym”. Niebieski jest uprzejmy, łagodny, skłonny do współpracy w zespole. Doskonale sprawdza się, jako negocjator godzący sprzeczne interesy zwaśnionych stron. To także utalentowany analityk, bystry obserwator. Najwyżej w hierarchii wartości stawia rodzinę i przyjaciół.</h6>
+                </div>
+            </div>
+            <div class="carousel-item color-description blue">
+               <h2>Niebieski – analityk, organizator</h2>
+               <table class="table table-bordered">
+                  <thead>
+                    <tr class="text-center blue">
+                      <th class="th-green w-50" scope="col">Zalety</th>
+                      <th class="th-red w-50" scope="col">Wady</th>
+                    </tr>
+                  </thead>
+                  <tbody class="blue">
+                    <tr>
+                      <td>Uporządkowanie</td>
+                      <td>Niezdecydowanie</td>
+                    </tr>
+                    <tr>
+                      <td>Sumienność</td>
+                      <td>Skłonność do „grzęźnięcia w szczegółach”</td>
+                    </tr>
+                    <tr>
+                      <td>Dyscyplina</td>
+                      <td>Niskie poczucie własnej wartości</td>
+                    </tr>
+                    <tr>
+                      <td>Precyzja</td>
+                      <td>Unikanie konfrontacji i kontrowersji</td>
+                    </tr>
+                    <tr>
+                      <td>Solidarność</td>
+                      <td>Wrażliwość na krytykę</td>
+                    </tr>
+                    <tr>
+                      <td>Zdolności analityczne</td>
+                      <td>Niski poziom odporności na stres</td>
+                    </tr>
+                    <tr>
+                      <td>Dyplomacja i uprzejmość</td>
+                      <td>Pesymizm</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="carousel-item">
+                <div class="color-description blue">
+                <h3>Praca idealna dla „Niebieskiego”</h3><br>
+                <ul>
+                    <li>Stabilne otoczenie i procedury.</li>
+                    <li>Praca wymagająca zdolności myślenia analitycznego i krytycznego spojrzenia na występujące problemy.</li>
+                    <li>Możliwości do krytyki.</li>
+                    <li>Stanowisko wymagające planowania i myślenia strategicznego.</li>
+                    <li>Praca bez presji czasu i w warunkach maksymalnie bez-stresowych.</li>
+                    <li>Stanowisko niewymagające częstych kontaktów międzyludzkich.</li>
+                    <li>Dokładny opis pracy, oczekiwania.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div>
+    <div id="carouselExample3" class="carousel slide col-sm color-description yellow" data-ride="carousel">
+        <div class="carousel-inner car-inner">
+            <div class="carousel-item active">
+                <div class="color-description yellow">
+                    <h3>KOLOR ŻÓŁTY</h3>
+                    <h6>Radośni, szczęśliwi ludzie w życiu są postrzegani jako kolor żółty. Osoby te są zawsze pozytywne i gotowe na to, co przynosi im życie. Spontaniczna natura zapewnia, że ​​żółci są w stanie w pełni wykorzystać życie i poznać nowych przyjaciół, ale często są zbyt zajęci sobą, aby utrzymać trwałe przyjaźnie lub relacje. Żółci są bardzo kreatywni, nie boją się zmian. To innowatorzy otwarci na nowe doświadczenia.</h6>
+                </div>
+            </div>
+            <div class="carousel-item color-description yellow">
+               <h2>Żółty – pomysłodawca, kreator nowych idei</h2>
+               <table class="table table-bordered">
+                  <thead>
+                    <tr class="text-center">
+                      <th class="th-green w-50" scope="col">Zalety</th>
+                      <th class="th-red w-50" scope="col">Wady</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Optymista</td>
+                      <td>Impulsywny</td>
+                    </tr>
+                    <tr>
+                      <td>Pełen entuzjazmu</td>
+                      <td>Nie analizuje problemów, nie planuje rozwiązań</td>
+                    </tr>
+                    <tr>
+                      <td>Pewny siebie</td>
+                      <td>Chaotyczny w działaniach</td>
+                    </tr>
+                    <tr>
+                      <td>Bardzo komunikatywny</td>
+                      <td>Bałaganiarz</td>
+                    </tr>
+                    <tr>
+                      <td>Pomocny, radosny i towarzyski</td>
+                      <td>Niskie zdolności analityczne i myślenia krytycznego</td>
+                    </tr>
+                    <tr>
+                      <td>Lubi dobrą zabawę</td>
+                      <td>Mało skupiony</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="carousel-item">
+                <div class="color-description yellow">
+                <h3>Praca idealna dla  „Żółtego”</h3><br>
+                <ul>
+                    <li>Zawody i stanowiska pracy z wysoką ekspozycją społeczną.</li>
+                    <li>Stanowiska samodzielne, bez bezpośredniej podległości i nadzoru nad „Żółtym”.</li>
+                    <li>Praca wymagająca kreatywności i innowacyjnych rozwiązań.</li>
+                    <li>Stanowiska wymagające częstych kontaktów międzyludzkich.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div>
+    <div id="carouselExample4" class="carousel slide col-sm color-description white" data-ride="carousel">
+        <div class="carousel-inner car-inner">
+            <div class="carousel-item active">
+                <div class="color-description white">
+                    <h3>KOLOR BIAŁY</h3>
+                    <h6>Biali to wizjonerzy i budowniczy. Kolor biały zawsze przynosi spokój umysłowi człowieka i tak samo jest z tą osobowością. Biali są cierpliwi i uprzejmi. Są to przyjaciele, których pragnie każda osoba. Są troskliwi, rozważni i nie osądzają. Będą słuchać godzinami i nie będą chcieli niczego w zamian; będą dobrym przyjacielem. Jednak osoby te padną ofiarą własnych wewnętrznych zmagań, gdy chcą zachować spokój. Nie chcą pracować dla kogoś innego i często nie są zadowoleni ze swoich osiągnięć. Biali są mało skupieni na detalach, zazwyczaj widzą tylko “szeroki plan”. Mają bardzo rozwiniętą intuicję. Są komunikatywni i lubiani w grupie i często dzięki nim ta grupa rozwija swoje pomysły, plany i idee.</h6>
+                </div>
+            </div>
+            <div class="carousel-item color-description white">
+               <h2>Biały – wizjoner, budowniczy</h2>
+               <table class="table table-bordered">
+                  <thead>
+                    <tr class="text-center">
+                      <th class="th-green w-50" scope="col">Zalety</th>
+                      <th class="th-red w-50" scope="col">Wady</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Altruista</td>
+                      <td>Słabo adaptuje się do zmian</td>
+                    </tr>
+                    <tr>
+                      <td>Opanowany</td>
+                      <td>Niskie zdolności analityczne</td>
+                    </tr>
+                    <tr>
+                      <td>Wierny i lojalny</td>
+                      <td>Niskie zdolności zarządzania ludźmi</td>
+                    </tr>
+                    <tr>
+                      <td>Zdolności komunikacyjne</td>
+                      <td>Szybko się nudzi i zniechęca</td>
+                    </tr>
+                    <tr>
+                      <td>Wysoki iloraz inteligencji emocjonalnej</td>
+                      <td>Niezdecydowany</td>
+                    </tr>
+                    <tr>
+                      <td>Dobry słuchacz</td>
+                      <td>Zaborczy i pamiętliwy</td>
+                    </tr>
+                    <tr>
+                      <td>Przyjazny i sympatyczny</td>
+                      <td>Nie przejawia inicjatywy</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="carousel-item">
+                <div class="color-description white">
+                <h3>Praca idealna dla „Białego”</h3><br>
+                <ul>
+                    <li>Miejsce pracy z wysokim poczuciem bezpieczeństwa i stabilności.</li>
+                    <li>Praca musi mieć dokładnie określone zasady pracy i granice decyzyjności.</li>
+                    <li>Stanowisko z możliwością budowania dobrych relacji międzyludzkich.</li>
+                    <li>Stanowisko ze zmiennym zakresem obowiązków i szansą uczenia się.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample4" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample4" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div>
+    <h5>Odnalazłeś siebie?<br>
+        Może pasują do Ciebie cechy kilku typów?<br>
+        To normalne. Pogratuluj sobie swoich mocnych stron – jesteś wspaniały/-a!<br>
+        Ale zerknij też na słabsze strony – po to, by zdecydować, czy chcesz je zmienić; by
+        sprawdzić, czy przeszkadzają Ci na co dzień.</h5><br>
+    <h3 style="color: #FEFF86">I ciesz się z tego, kim jesteś!</h3>
+</div>
+</div>
+
+</body>
+</html>
